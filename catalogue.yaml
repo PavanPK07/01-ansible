@@ -57,10 +57,11 @@
       state: started
 
   - name: load catalogue data
-    ansible.builtin.command: mongo --host mongodb.pkkr.online </app/schema/catalogue.js
+    ansible.builtin.command: mongo --host mongodb.pkkr.online < /app/schema/catalogue.js
 
   - name: Reload server
     ansible.builtin.service:
       name: catalogue
       state: reloaded
+      enabled: yes
   
